@@ -10,7 +10,7 @@
     ],
     "persist": ["USER_DATA"],
     "shortcuts": [
-        ["BIN\\thorium.exe", "Thorium", "--user-data-dir=\"D:\\scoop\\apps\\thorium-gz83-avx2\\current\\USER_DATA\" --disable-machine-id"]
+        ["BIN\\thorium.exe", "Thorium", --user-data-dir=\D:\\scoop\\apps\\thorium-gz83-avx2\\current\\USER_DATA\ --disable-machine-id]
     ],
     "checkver": {
         "github": "https://github.com/gz83/thorium",
