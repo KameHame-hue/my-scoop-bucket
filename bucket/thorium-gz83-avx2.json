@@ -1,6 +1,6 @@
 {
     "version": "156.0.8078.28",
-    "description": "Thorium Browser (gz83 持续更新线, AVX2 便携版)",
+    "description": "Thorium Browser（追踪 gz83 更新线，内核版本领先于官方 main/versions bucket 中的 thorium），AVX2 便携构建",
     "homepage": "https://github.com/gz83/thorium",
     "license": "BSD-3-Clause",
     "url": "https://github.com/gz83/thorium/releases/download/M156.0.8078.28/Thorium_AVX2_156.0.8078.28.zip",
