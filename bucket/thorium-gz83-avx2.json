@@ -6,11 +6,11 @@
     "url": "https://github.com/gz83/thorium/releases/download/M156.0.8078.28/Thorium_AVX2_156.0.8078.28.zip",
     "hash": "cdd502a93ff21db45627a22e39c1a5ce9816f0f30fabc504fddf59a44d59d6d2",
     "bin": [
-        ["BIN\\thorium.exe", "thorium", "--user-data-dir=\"D:\\scoop\\apps\\thorium-gz83-avx2\\current\\USER_DATA\" --disable-machine-id"]
+        ["BIN\\thorium.exe", "thorium", "--user-data-dir=\D:\\scoop\\apps\\thorium-gz83-avx2\\current\\USER_DATA\ --disable-machine-id"]
     ],
     "persist": ["USER_DATA"],
     "shortcuts": [
-        ["BIN\\thorium.exe", "Thorium", --user-data-dir=\D:\\scoop\\apps\\thorium-gz83-avx2\\current\\USER_DATA\ --disable-machine-id]
+        ["BIN\\thorium.exe", "Thorium", "--user-data-dir=\D:\\scoop\\apps\\thorium-gz83-avx2\\current\\USER_DATA\ --disable-machine-id"]
     ],
     "checkver": {
         "github": "https://github.com/gz83/thorium",
