@@ -11,6 +11,12 @@
         "ReduceMemory.exe",
         "ReduceMemory_x64.exe"
     ],
+    "shortcuts": [
+        [
+            "ReduceMemory_x64.exe",
+            "ReduceMemory"
+        ]
+    ],
     "checkver": {
         "url": "https://www.sordum.org/9197/reduce-memory-v1-7/",
         "regex": "Reduce Memory [Vv]([\\d.]+)"
