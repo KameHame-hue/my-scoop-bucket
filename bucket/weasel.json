@@ -15,6 +15,7 @@
     "post_install": [
         "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse -ErrorAction SilentlyContinue"
     ],
+    "persist": "data",
     "uninstaller": {
         "script": "Invoke-ExternalCommand \"$dir\\uninstall.exe\" -ArgumentList '/S' -RunAs | Out-Null"
     },

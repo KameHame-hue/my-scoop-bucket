@@ -6,6 +6,7 @@
     "notes": "程序主文件名（bin）按常见命名猜测为 \"File List Maker.exe\"，首次安装后请核对压缩包内实际文件名，如不一致请告知以便修正。",
     "url": "https://indeepsoft.ly.ro/download/File_List_Maker_1.4.3.zip",
     "hash": "c739d9afa7e095788bcc89c6b36b7f9a94426dafc6ce64cb38d18b5c0d7485ac",
+    "extract_dir": "File List Maker 1.4.3",
     "bin": "File List Maker.exe",
     "checkver": {
         "url": "https://indeepsoft.ly.ro/apps/FileListMaker.html",

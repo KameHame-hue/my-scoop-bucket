@@ -13,6 +13,12 @@
         "4220e2f83fecfc071b21429eb660e6d6f2ed616661dd6eaa9d02b5ece9297c5d"
     ],
     "bin": "stickies.exe",
+    "shortcuts": [
+        [
+            "stickies.exe",
+            "Stickies"
+        ]
+    ],
     "checkver": {
         "url": "https://www.zhornsoftware.co.uk/stickies/download.html",
         "regex": "stickies_setup_([\\d_a-z]+)\\.zip"
