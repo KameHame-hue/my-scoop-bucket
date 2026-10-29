@@ -12,6 +12,9 @@
         "ba030891b8627078444e37d9dc8e0ceeb63fd18b69866ace2c8d88ff7deb5634",
         "4220e2f83fecfc071b21429eb660e6d6f2ed616661dd6eaa9d02b5ece9297c5d"
     ],
+    "pre_install": [
+        "if (!(Test-Path \"$dir\\stickies.db\" -PathType Leaf)) { New-Item -ItemType File -Path \"$dir\\stickies.db\" -Force | Out-Null }"
+    ],
     "bin": "stickies.exe",
     "shortcuts": [
         [
