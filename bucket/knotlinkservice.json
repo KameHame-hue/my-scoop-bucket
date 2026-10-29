@@ -1,0 +1,30 @@
+{
+    "version": "3.2.0.0",
+    "description": "KnotLink 协议桌面服务端（Windows 客户端）",
+    "homepage": "https://github.com/KnotLink-Protocol/KnotLinkService",
+    "license": "Freeware",
+    "notes": "此安装包的实际打包框架未经验证，若 /VERYSILENT /DIR 等参数不生效或安装失败，请手动运行一次安装程序观察其行为（是 Inno Setup / NSIS / 其他），再调整 installer.args。",
+    "url": "https://github.com/KnotLink-Protocol/KnotLinkService/releases/download/v3.2.0.0/KnotLinkService-3.2.0.0-windows-x86-Installer.exe",
+    "hash": "968fffb74af12aa9b4c186f456b4594521d21c18faeaa57a8b5227cd9670bb12",
+    "installer": {
+        "args": [
+            "/VERYSILENT",
+            "/SUPPRESSMSGBOXES",
+            "/NORESTART",
+            "/DIR=\"$dir\""
+        ]
+    },
+    "uninstaller": {
+        "args": [
+            "/VERYSILENT"
+        ]
+    },
+    "bin": "KnotLinkService.exe",
+    "checkver": {
+        "url": "https://github.com/KnotLink-Protocol/KnotLinkService/releases",
+        "regex": "KnotLinkService-([\\d.]+)-windows-x86-Installer\\.exe"
+    },
+    "autoupdate": {
+        "url": "https://github.com/KnotLink-Protocol/KnotLinkService/releases/download/v$version/KnotLinkService-$version-windows-x86-Installer.exe"
+    }
+}

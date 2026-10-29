@@ -1,0 +1,48 @@
+{
+    "version": "4.4.0-1",
+    "description": "Claws Mail 邮件/新闻客户端（配置目录已重定向到 D 盘持久化目录）",
+    "homepage": "https://www.claws-mail.org",
+    "license": "GPL-3.0-or-later",
+    "url": "https://www.claws-mail.org/win32/claws-mail-4.4.0-1-64bit.exe",
+    "hash": "0fad3f06f7a758535f08a13d992450555d57a10726fc11c52407c3fcdda57ef8",
+    "installer": {
+        "args": [
+            "/S"
+        ]
+    },
+    "uninstaller": {
+        "args": [
+            "/S"
+        ]
+    },
+    "bin": [
+        [
+            "claws-mail.exe",
+            "claws-mail",
+            [
+                "--alternate-config-dir",
+                "$persist_dir\\config"
+            ]
+        ]
+    ],
+    "shortcuts": [
+        [
+            "claws-mail.exe",
+            "Claws Mail",
+            "--alternate-config-dir \"$persist_dir\\config\""
+        ]
+    ],
+    "post_install": [
+        "$oldConfig = \"$env:APPDATA\\Claws-mail\"",
+        "$newConfig = \"$persist_dir\\config\"",
+        "if (!(Test-Path $newConfig)) { New-Item -ItemType Directory -Path $newConfig -Force | Out-Null }",
+        "if ((Test-Path $oldConfig) -and ((Get-ChildItem $newConfig -ErrorAction SilentlyContinue | Measure-Object).Count -eq 0)) { Copy-Item \"$oldConfig\\*\" $newConfig -Recurse -Force; Write-Host '已将现有 Claws Mail 配置迁移到持久化目录' -ForegroundColor Green }"
+    ],
+    "checkver": {
+        "url": "https://www.claws-mail.org/win32/",
+        "regex": "claws-mail-([\\d.]+-\\d+)-64bit\\.exe"
+    },
+    "autoupdate": {
+        "url": "https://www.claws-mail.org/win32/claws-mail-$version-64bit.exe"
+    }
+}

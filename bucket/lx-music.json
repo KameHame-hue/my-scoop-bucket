@@ -1,0 +1,22 @@
+{
+    "version": "2.12.6",
+    "description": "LX Music 桌面版，免费开源音乐播放器",
+    "homepage": "https://github.com/lyswhut/lx-music-desktop",
+    "license": "Apache-2.0",
+    "notes": "程序主文件名（bin）按常见 Electron 应用命名猜测为 lx-music-desktop.exe，首次安装后请核对压缩包内实际文件名，如不一致请告知以便修正。",
+    "url": "https://github.com/lyswhut/lx-music-desktop/releases/download/v2.12.6/lx-music-desktop-v2.12.6-win_x64-green.7z",
+    "hash": "a07d2a15dbcf06ce689bf8b99c64241b06deb28fdfb6ffe79b6dcdfbb0d157a5",
+    "bin": "lx-music-desktop.exe",
+    "shortcuts": [
+        [
+            "lx-music-desktop.exe",
+            "LX Music"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/lyswhut/lx-music-desktop"
+    },
+    "autoupdate": {
+        "url": "https://github.com/lyswhut/lx-music-desktop/releases/download/v$version/lx-music-desktop-v$version-win_x64-green.7z"
+    }
+}

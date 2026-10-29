@@ -1,0 +1,20 @@
+{
+    "version": "1.7",
+    "description": "Reduce Memory，释放/整理系统内存占用的小工具",
+    "homepage": "https://www.sordum.org/9197/reduce-memory-v1-7/",
+    "license": "Freeware",
+    "notes": "此直链在没有正确 Referer 请求头的情况下会被网站拦截、返回网页而非真正的 zip，需要配合本机 scoop 全局 config.json 中的 private_hosts 设置才能正常下载，具体设置见对话说明。",
+    "url": "https://www.sordum.org/files/download/reduce-memory/ReduceMemory.zip",
+    "hash": "cd0d1685c8cc6c3c0c929abef2bcc28bb3a42c7597662c3f428cb4cdaee7e7da",
+    "bin": [
+        "ReduceMemory.exe",
+        "ReduceMemory_x64.exe"
+    ],
+    "checkver": {
+        "url": "https://www.sordum.org/9197/reduce-memory-v1-7/",
+        "regex": "Reduce Memory [Vv]([\\d.]+)"
+    },
+    "autoupdate": {
+        "url": "https://www.sordum.org/files/download/reduce-memory/ReduceMemory.zip"
+    }
+}

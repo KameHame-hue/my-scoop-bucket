@@ -1,0 +1,26 @@
+{
+    "version": "10_2a",
+    "description": "Stickies，桌面便签小工具（含中文语言包）",
+    "homepage": "https://www.zhornsoftware.co.uk/stickies/index.html",
+    "license": "Freeware",
+    "notes": "语言包 cn.zip 的版本号与软件本体不是同一体系，autoupdate 无法自动判断语言包是否有新版本，需要定期人工核对 https://www.zhornsoftware.co.uk/stickies/download.html 。另外建议首次运行后确认 Stickies 把笔记数据存到了哪个文件，再补充 persist 配置，避免升级时丢数据。",
+    "url": [
+        "https://www.zhornsoftware.co.uk/stickies/stickies_setup_10_2a.zip",
+        "https://www.zhornsoftware.co.uk/stickies/xl/cn.zip"
+    ],
+    "hash": [
+        "ba030891b8627078444e37d9dc8e0ceeb63fd18b69866ace2c8d88ff7deb5634",
+        "4220e2f83fecfc071b21429eb660e6d6f2ed616661dd6eaa9d02b5ece9297c5d"
+    ],
+    "bin": "stickies.exe",
+    "checkver": {
+        "url": "https://www.zhornsoftware.co.uk/stickies/download.html",
+        "regex": "stickies_setup_([\\d_a-z]+)\\.zip"
+    },
+    "autoupdate": {
+        "url": [
+            "https://www.zhornsoftware.co.uk/stickies/stickies_setup_$version.zip",
+            "https://www.zhornsoftware.co.uk/stickies/xl/cn.zip"
+        ]
+    }
+}
