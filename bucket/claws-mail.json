@@ -7,7 +7,8 @@
     "hash": "0fad3f06f7a758535f08a13d992450555d57a10726fc11c52407c3fcdda57ef8",
     "installer": {
         "args": [
-            "/S"
+            "/S",
+            "/D=$dir"
         ]
     },
     "uninstaller": {

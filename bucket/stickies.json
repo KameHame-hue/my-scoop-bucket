@@ -3,7 +3,7 @@
     "description": "Stickies，桌面便签小工具（含中文语言包）",
     "homepage": "https://www.zhornsoftware.co.uk/stickies/index.html",
     "license": "Freeware",
-    "notes": "语言包 cn.zip 的版本号与软件本体不是同一体系，autoupdate 无法自动判断语言包是否有新版本，需要定期人工核对 https://www.zhornsoftware.co.uk/stickies/download.html 。另外建议首次运行后确认 Stickies 把笔记数据存到了哪个文件，再补充 persist 配置，避免升级时丢数据。",
+    "notes": "语言包 cn.zip 的版本号与软件本体不是同一体系，autoupdate 无法自动判断语言包是否有新版本，需要定期人工核对 https://www.zhornsoftware.co.uk/stickies/download.html 。",
     "url": [
         "https://www.zhornsoftware.co.uk/stickies/stickies_setup_10_2a.zip",
         "https://www.zhornsoftware.co.uk/stickies/xl/cn.zip"
@@ -18,6 +18,18 @@
             "stickies.exe",
             "Stickies"
         ]
+    ],
+    "persist": [
+        "stickies.db",
+        "backups",
+        "rtf"
+    ],
+    "post_install": [
+        "$oldData = \"$env:APPDATA\\stickies\"",
+        "$newDb = \"$persist_dir\\stickies.db\"",
+        "if ((Test-Path \"$oldData\\stickies.db\") -and ((Get-Item $newDb -ErrorAction SilentlyContinue).Length -eq 0)) { Copy-Item \"$oldData\\stickies.db\" $newDb -Force; Write-Host '已将现有 Stickies 笔记数据迁移到持久化目录' -ForegroundColor Green }",
+        "if ((Test-Path \"$oldData\\backups\") -and ((Get-ChildItem \"$persist_dir\\backups\" -ErrorAction SilentlyContinue | Measure-Object).Count -eq 0)) { Copy-Item \"$oldData\\backups\\*\" \"$persist_dir\\backups\" -Recurse -Force }",
+        "if ((Test-Path \"$oldData\\rtf\") -and ((Get-ChildItem \"$persist_dir\\rtf\" -ErrorAction SilentlyContinue | Measure-Object).Count -eq 0)) { Copy-Item \"$oldData\\rtf\\*\" \"$persist_dir\\rtf\" -Recurse -Force }"
     ],
     "checkver": {
         "url": "https://www.zhornsoftware.co.uk/stickies/download.html",

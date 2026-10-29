@@ -13,6 +13,13 @@
             "LX Music"
         ]
     ],
+    "persist": "portable",
+    "post_install": [
+        "$oldData = \"$env:APPDATA\\lx-music-desktop\"",
+        "$newData = \"$persist_dir\\portable\"",
+        "if (!(Test-Path $newData)) { New-Item -ItemType Directory -Path $newData -Force | Out-Null }",
+        "if ((Test-Path $oldData) -and ((Get-ChildItem $newData -ErrorAction SilentlyContinue | Measure-Object).Count -eq 0)) { Copy-Item \"$oldData\\*\" $newData -Recurse -Force; Write-Host '已将现有 LX Music 数据迁移到持久化目录' -ForegroundColor Green }"
+    ],
     "checkver": {
         "github": "https://github.com/lyswhut/lx-music-desktop"
     },
