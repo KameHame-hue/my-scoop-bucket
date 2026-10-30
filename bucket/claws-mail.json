@@ -12,6 +12,7 @@
         ]
     },
     "uninstaller": {
+        "file": "claws-mail-uninstall.exe",
         "args": [
             "/S"
         ]
