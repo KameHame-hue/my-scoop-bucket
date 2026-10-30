@@ -37,7 +37,9 @@
         "$oldConfig = \"$env:APPDATA\\Claws-mail\"",
         "$newConfig = \"$persist_dir\\config\"",
         "if (!(Test-Path $newConfig)) { New-Item -ItemType Directory -Path $newConfig -Force | Out-Null }",
-        "if ((Test-Path $oldConfig) -and ((Get-ChildItem $newConfig -ErrorAction SilentlyContinue | Measure-Object).Count -eq 0)) { Copy-Item \"$oldConfig\\*\" $newConfig -Recurse -Force; Write-Host '已将现有 Claws Mail 配置迁移到持久化目录' -ForegroundColor Green }"
+        "if ((Test-Path $oldConfig) -and ((Get-ChildItem $newConfig -ErrorAction SilentlyContinue | Measure-Object).Count -eq 0)) { Copy-Item \"$oldConfig\\*\" $newConfig -Recurse -Force; Write-Host '已将现有 Claws Mail 配置迁移到持久化目录' -ForegroundColor Green }",
+        "Remove-Item \"$env:ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Claws-Mail.lnk\" -ErrorAction SilentlyContinue",
+        "Remove-Item \"$env:ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Claws-Mail Manual.lnk\" -ErrorAction SilentlyContinue"
     ],
     "checkver": {
         "url": "https://www.claws-mail.org/win32/",
