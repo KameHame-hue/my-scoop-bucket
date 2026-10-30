@@ -1,0 +1,20 @@
+{
+    "version": "1.8.5",
+    "description": "CFData-Web，基于 Go 开发的 Cloudflare IP 测试与筛选工具，提供本地 Web/CLI 界面",
+    "homepage": "https://github.com/PoemMisty/CFData-WEB",
+    "license": "GPL-3.0-or-later",
+    "notes": "单文件程序，无需解压/安装，直接运行；运行时会在程序目录自动生成 cfdata-config.json 等配置文件，已通过 persist 持久化，更新到新版本号文件夹后会自动保留。",
+    "url": "https://github.com/PoemMisty/CFData-WEB/releases/download/v1.8.5/cfdata-windows-amd64.exe",
+    "hash": "d28b870f6a25946333d11bfd58cba3143a06c1f8954f0a995aba1fcb31c9de27",
+    "bin": "cfdata-windows-amd64.exe",
+    "pre_install": [
+        "if (!(Test-Path \"$dir\\cfdata-config.json\" -PathType Leaf)) { New-Item -ItemType File -Path \"$dir\\cfdata-config.json\" -Force | Out-Null }"
+    ],
+    "persist": "cfdata-config.json",
+    "checkver": {
+        "github": "https://github.com/PoemMisty/CFData-WEB"
+    },
+    "autoupdate": {
+        "url": "https://github.com/PoemMisty/CFData-WEB/releases/download/v$version/cfdata-windows-amd64.exe"
+    }
+}
