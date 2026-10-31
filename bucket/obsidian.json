@@ -1,0 +1,53 @@
+{
+    "version": "1.14.5",
+    "description": "强大的本地知识库软件，基于纯文本 Markdown 文件 | Powerful knowledge base that works on top of a local folder of plain text Markdown files.",
+    "homepage": "https://obsidian.md",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://obsidian.md/license"
+    },
+    "notes": "Obsidian 为 Electron 应用，配置/数据默认写死在 %APPDATA%\\obsidian，与软件安装位置无关；已通过 post_install 建立目录联接(Junction)将其迁移到 persist\\obsidian\\appdata，更新/重装后自动保留；pre_uninstall 会在卸载前移除该联接本身（不影响 persist 中的实际数据）。",
+    "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.14.5/Obsidian-1.14.5.exe#/dl.7z",
+    "hash": "4b95aa855062fb253439c392a32b536c3f9f22ac7fad04f1a6cbf176ecbcfa2a",
+    "architecture": {
+        "64bit": {
+            "pre_install": "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\""
+        },
+        "32bit": {
+            "pre_install": "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-32.7z\" \"$dir\""
+        },
+        "arm64": {
+            "pre_install": "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-arm64.7z\" \"$dir\""
+        }
+    },
+    "persist": "appdata",
+    "post_install": [
+        "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\" -Force -Recurse",
+        "$roamingPath = \"$env:APPDATA\\obsidian\"",
+        "$target = \"$persist_dir\\appdata\"",
+        "if ((Test-Path $roamingPath) -and ((Get-Item $roamingPath -ErrorAction SilentlyContinue).LinkType -ne 'Junction')) { if ((Get-ChildItem $target -ErrorAction SilentlyContinue | Measure-Object).Count -eq 0) { Copy-Item \"$roamingPath\\*\" $target -Recurse -Force }; Remove-Item $roamingPath -Recurse -Force }",
+        "if (!(Test-Path $roamingPath)) { New-Item -ItemType Junction -Path $roamingPath -Target $target -Force | Out-Null }"
+    ],
+    "pre_uninstall": [
+        "$roamingPath = \"$env:APPDATA\\obsidian\"",
+        "if ((Test-Path $roamingPath) -and ((Get-Item $roamingPath -ErrorAction SilentlyContinue).LinkType -eq 'Junction')) { Remove-Item $roamingPath -Force }"
+    ],
+    "bin": [
+        [
+            "obsidian.com",
+            "obsidian"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "Obsidian.exe",
+            "Obsidian"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/obsidianmd/obsidian-releases"
+    },
+    "autoupdate": {
+        "url": "https://github.com/obsidianmd/obsidian-releases/releases/download/v$version/Obsidian-$version.exe#/dl.7z"
+    }
+}
